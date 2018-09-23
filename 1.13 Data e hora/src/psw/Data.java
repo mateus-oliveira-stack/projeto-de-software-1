@@ -54,6 +54,34 @@ public class Data {
 		if(this.dia == 0 || this.mes == 0 || this.ano == 0)
 			return String.format("Data inválida");
 		
-		return String.format("Data: %02d/%02d/%02d", this.dia, this.mes, this.ano);
+		String mesExtenso = null;
+		
+		if(this.mes == 1)
+			mesExtenso = "janeiro";
+		if(this.mes == 2)
+			mesExtenso = "fevereiro";
+		if(this.mes == 3)
+			mesExtenso = "março";
+		if(this.mes == 4)
+			mesExtenso = "abril";
+		if(this.mes == 5)
+			mesExtenso = "maio";
+		if(this.mes == 6)
+			mesExtenso = "junho";
+		if(this.mes == 7)
+			mesExtenso = "julho";
+		if(this.mes == 8)
+			mesExtenso = "agosto";
+		if(this.mes == 9)
+			mesExtenso = "setembro";
+		if(this.mes == 10)
+			mesExtenso = "outubro";
+		if(this.mes == 11)
+			mesExtenso = "novembro";
+		if(this.mes == 12)
+			mesExtenso = "dezembro";
+			
+		
+		return String.format("Data: %02d de %s %02d", this.dia, mesExtenso, this.ano);
 	}
 }
