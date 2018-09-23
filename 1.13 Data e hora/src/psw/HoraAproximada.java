@@ -1,7 +1,7 @@
 package psw;
 
 public class HoraAproximada {
-	private int horas, minutos, segundos;
+	protected int horas, minutos, segundos;
 	
 	public void inicializaHora(int horas, int minutos, int segundos) {
 		this.horas = horas;
@@ -34,7 +34,7 @@ public class HoraAproximada {
 	}
 	
 	public String mostraHora() {
-		return String.format("Hora: %02d:%02d:%02d", this.horas, this.minutos, this.segundos);
+		return String.format("Hora aproximada: %02d:%02d:%02d", this.horas, this.minutos, this.segundos);
 	}
 	
 }

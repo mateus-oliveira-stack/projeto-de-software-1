@@ -16,5 +16,10 @@ public class TesteHora {
 		hora.setMinutos(35);
 		hora.setSegundos(36);
 		System.out.println(hora.mostraHora());
+		
+		HoraPrecisa horaprecisa = new HoraPrecisa();
+		
+		horaprecisa.inicializaHora(20, 2, 25, 10);
+		System.out.println(horaprecisa.mostraHoraPrecisa());
 	}
 }
