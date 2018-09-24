@@ -4,16 +4,58 @@ public class Data {
 	private int dia, mes, ano;
 	
 	public void inicializaData(int dia, int mes, int ano) {
+		
 		if(dia < 1 || dia > 31 || mes < 1 || mes > 12|| ano < 1) {
 			this.dia = 0;
 			this.mes = 0;
 			this.ano = 0;
+		}
+		
+		else if(mes == 4 || mes == 6 || mes == 9 || mes == 11 ) {
+			if(dia > 30) {
+				this.dia = 0;
+				this.mes = 0;
+				this.ano = 0;
+			}
+		}
+		else if(mes == 2) {
+			if(ano % 4 == 0) {
+				if(dia > 29) {
+					this.dia = 0;
+					this.mes = 0;
+					this.ano = 0;
+				}
+				else {
+					this.dia = dia;
+					this.mes = mes;
+					this.ano = ano;
+				}
+			}
+			else if(ano % 4 != 0) {
+				if(dia > 28) {
+					this.dia = 0;
+					this.mes = 0;
+					this.ano = 0;
+				}
+				else {
+					this.dia = dia;
+					this.mes = mes;
+					this.ano = ano;
+				}
+			}
 		}
 		else {
 			this.dia = dia;
 			this.mes = mes;
 			this.ano = ano;
 		}
+	}
+	
+	public void duplicaData(Object obj) {
+		Data other = (Data) obj;
+		this.dia = other.dia;
+		this.ano = other.ano;
+		this.mes = other.mes;
 	}
 	
 	public boolean dataEValida() {
