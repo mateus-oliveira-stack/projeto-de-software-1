@@ -51,6 +51,24 @@ public class Data {
 		}
 	}
 	
+	public boolean vemAntes(Object obj) {
+		Data other = (Data) obj;
+		if(this.ano < other.ano)
+			return true;
+		if(this.ano > other.ano)
+			return false;
+		if(this.mes < other.mes)
+			return true;
+		if(this.mes > other.mes)
+			return false;
+		if(this.dia < other.dia)
+			return true;
+		if(this.dia > other.dia)
+			return false;
+		
+		return true;
+	}
+	
 	public void duplicaData(Object obj) {
 		Data other = (Data) obj;
 		this.dia = other.dia;
