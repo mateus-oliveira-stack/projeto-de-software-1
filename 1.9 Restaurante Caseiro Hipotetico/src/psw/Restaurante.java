@@ -1,60 +1,34 @@
 package psw;
 
 public class Restaurante {
-	private int qtdBebidas, qtdPratos, qtdClientes, qtdMesas;
-	private double precoBebida, precoPrato, lucroTotal;
-	private String endereco;
 	
-	public void calculaLucro(double lucro) {
-		this.lucroTotal = this.lucroTotal + lucro;
-	}
-	
-	public double calculaImposto(double porcentImposto) {
-		double imposto;
-		imposto = (lucroTotal * porcentImposto);
-		lucroTotal = lucroTotal - imposto;
-		return imposto;
-	}
-	
-	public double calculaConta() {
-		double resultado;
-		resultado = (this.precoBebida * this.qtdBebidas) + (this.qtdPratos * this.precoPrato);
-		resultado = resultado / this.qtdClientes;
-		return resultado;
-	}
-	
-	public int getQtdClientes() {
-		return qtdClientes;
-	}
+	public static void main(String[] args) {
+		
+		int i, qtdMesas = 50;
+		
+		MesaDeRestaurante mesa[] = new MesaDeRestaurante[qtdMesas];
+		
+		for(i = 0; i < qtdMesas; i++) {
+			mesa[i] = new MesaDeRestaurante();
+		}
+		
+		mesa[0].adicionaAoPedido(5, 5);
+		mesa[0].setQtdClientes(10);
+		mesa[0].setPrecoBebida(5.00);
+		mesa[0].setPrecoPrato(10.00);
+		
+		System.out.println("Total da mesa: " + mesa[0].calculaTotal());
+		System.out.println("Total por cliente: " + mesa[0].divideConta());
+		
+		for(i = 0; i < 50; i++) {
+			mesa[i].adicionaAoPedido(5, 5);
+			mesa[i].setQtdClientes((i+1));
+			mesa[i].setPrecoBebida(5.00);
+			mesa[i].setPrecoPrato(10.00);
+			System.out.println("\nTotal da mesa " + (i+1));
+			System.out.println("Total da mesa: " + mesa[i].calculaTotal());
+			System.out.println("Total por cliente: " + mesa[i].divideConta());
+		}
 
-	public void setQtdClientes(int qtdClientes) {
-		this.qtdClientes = qtdClientes;
 	}
-
-
-	public int getQtdBebidas() {
-		return qtdBebidas;
-	}
-
-	public void setQtdBebidas(int qtdBebidas) {
-		this.qtdBebidas = qtdBebidas;
-	}
-
-	public int getQtdPratos() {
-		return qtdPratos;
-	}
-
-	public void setQtdPratos(int qtdPratos) {
-		this.qtdPratos = qtdPratos;
-	}
-
-	public double getPrecoBebida() {
-		return precoBebida;
-	}
-
-	public double getPrecoPrato() {
-		return precoPrato;
-	}
-	
-	
 }
